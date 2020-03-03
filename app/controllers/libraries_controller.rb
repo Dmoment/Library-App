@@ -28,7 +28,9 @@ class LibrariesController < ApplicationController
 
     respond_to do |format|
       if @library.save
-        format.html { redirect_to @library, notice: 'Library was successfully created.' }
+        format.html { redirect_to @library}
+        flash[:notice]="Library was successfully created"
+      
         format.json { render :show, status: :created, location: @library }
       else
         format.html { render :new }
